@@ -1,0 +1,417 @@
+#################################################################
+###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.7)  http://visualdataweb.de/webvowl/   ###
+#################################################################
+
+@prefix : 		<http://purl.org/db/nosql> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: 		<http://purl.org/dc/elements/1.1/#> .
+@prefix xml: 		<http://www.w3.org/XML/1998/namespace> .
+@base 			<http://purl.org/db/nosql> .
+
+<http://purl.org/db/nosql> rdf:type owl:Ontology ;
+                           dc:title "Vocabulary about NOSQL stores"@en; 
+                           dc:description "A vocabulary about NOSQL stores, and their related concepts."@en; 
+                           owl:versionInfo "0.1"@en;
+                           dc:creator "http://mohamednadjibmami.com/me" . 
+#################################################################
+
+###  Property Definitions (Number of Property) 12 ###
+#  --------------------------- Property 0------------------------- 
+<http://purl.org/db/nosql#compliesWith> rdf:type owl:ObjectProperty ;
+                                        rdfs:comment "Tell which database is compliant with which properties, like relational database with ACID properties, or NOSQL wirh BASE properties." ;
+                                        rdfs:label "compliesWith"@IRI-based; 
+                                        rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                        rdfs:range <http://purl.org/db/nosql#Properties> . 
+#  --------------------------- Property 1------------------------- 
+<http://purl.org/db/nosql#hasPrimaryKey> rdf:type owl:ObjectProperty ;
+                                         rdfs:comment "Sets the primary key of an entity of a database." ;
+                                         rdfs:label "hasPrimaryKey"@IRI-based; 
+                                         rdfs:domain <http://purl.org/db/nosql#Entity>;
+                                         rdfs:range <http://purl.org/db/nosql#PrimaryKey> . 
+#  --------------------------- Property 2------------------------- 
+<http://purl.org/db/nosql#hasIndex> rdf:type owl:ObjectProperty ;
+                                    rdfs:label "hasIndex"@IRI-based; 
+                                    rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                    rdfs:range <http://purl.org/db/nosql#Index> . 
+#  --------------------------- Property 3------------------------- 
+<http://purl.org/db/nosql#hasData_Bucket> rdf:type owl:ObjectProperty ;
+                                          rdfs:comment "Special to CouchDB databases, a CouchDB has a number of data buckets." ;
+                                         rdfs:subPropertyOf <http://purl.org/db/nosql#hasEntity>;
+                                          rdfs:label "hasData_Bucket"@IRI-based; 
+                                          rdfs:domain <http://purl.org/db/nosql#CouchDB>;
+                                          rdfs:range <http://purl.org/db/nosql#Data_Bucket> . 
+#  --------------------------- Property 4------------------------- 
+<http://purl.org/db/nosql#hasEntity> rdf:type owl:ObjectProperty ;
+                                     rdfs:comment "A database contails one or more entities." ;
+                                     rdfs:label "hasEntity"@IRI-based; 
+                                     rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                     rdfs:range <http://purl.org/db/nosql#Entity> . 
+#  --------------------------- Property 5------------------------- 
+<http://purl.org/db/nosql#queriedBy> rdf:type owl:ObjectProperty ;
+                                     rdfs:comment "Define the query language of a certain database." ;
+                                     rdfs:label "queriedBy"@IRI-based; 
+                                     rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                     rdfs:range <http://purl.org/db/nosql#QueryLanguage> . 
+#  --------------------------- Property 6------------------------- 
+<http://purl.org/db/nosql#runsIn> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "A distributed database can run in a cluster." ;
+                                  rdfs:label "runsIn"@IRI-based; 
+                                  rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                  rdfs:range <http://purl.org/db/nosql#Cluster> . 
+#  --------------------------- Property 7------------------------- 
+<http://purl.org/db/nosql#store> rdf:type owl:ObjectProperty ;
+                                 rdfs:label "store"@IRI-based; 
+                                 rdfs:label "Store"@en; 
+                                 rdfs:range <http://purl.org/db/nosql#NonRelationalDB> . 
+#  --------------------------- Property 8------------------------- 
+<http://purl.org/db/nosql#hasAttribute> rdf:type owl:ObjectProperty ;
+                                        rdfs:comment "An entity in a database consists of a set of attributes." ;
+                                        rdfs:label "hasAttribute"@IRI-based; 
+                                        rdfs:domain <http://purl.org/db/nosql#Entity>;
+                                        rdfs:range <http://purl.org/db/nosql#Attribute> . 
+#  --------------------------- Property 9------------------------- 
+<http://purl.org/db/nosql#hasTable> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "Certain NOSQL databases store data in tables." ;
+                                   rdfs:subPropertyOf <http://purl.org/db/nosql#hasEntity>;
+                                    rdfs:label "hasTable"@IRI-based; 
+                                    rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
+                                    rdfs:range <http://purl.org/db/nosql#Table> . 
+#  --------------------------- Property 10------------------------- 
+<http://purl.org/db/nosql#hasCollection> rdf:type owl:ObjectProperty ;
+                                         rdfs:comment "Special to MongoDB, data is stored in collections of documents." ;
+                                        rdfs:subPropertyOf <http://purl.org/db/nosql#hasEntity>;
+                                         rdfs:label "hasCollection"@IRI-based; 
+                                         rdfs:domain <http://purl.org/db/nosql#MongoDB>;
+                                         rdfs:range <http://purl.org/db/nosql#Collection> . 
+#  --------------------------- Property 11------------------------- 
+<http://purl.org/db/nosql#viewIn> rdf:type owl:ObjectProperty ;
+                                  rdfs:label "viewIn"@IRI-based; 
+                                  rdfs:domain <http://purl.org/db/nosql#View>;
+                                  rdfs:range <http://purl.org/db/nosql#NonRelationalDB> . 
+###  Class Definitions (Number of Classes) 76 ###
+#  --------------------------- Class  0------------------------- 
+<http://purl.org/db/nosql#Druid> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                 rdfs:label "Druid"@IRI-based . 
+#  --------------------------- Class  1------------------------- 
+<http://purl.org/db/nosql#Chouchbase> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                      rdfs:label "Chouchbase"@IRI-based . 
+#  --------------------------- Class  2------------------------- 
+<http://purl.org/db/nosql#Scylla> rdf:type owl:Class; 
+                                  rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                  rdfs:label "Scylla"@IRI-based . 
+#  --------------------------- Class  3------------------------- 
+<http://purl.org/db/nosql#Elassandra> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                      rdfs:label "Elassandra"@IRI-based . 
+#  --------------------------- Class  4------------------------- 
+<http://purl.org/db/nosql#Tarantool> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:label "Tarantool"@IRI-based . 
+#  --------------------------- Class  5------------------------- 
+<http://purl.org/db/nosql#c-treeACE> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:label "c-treeACE"@IRI-based . 
+#  --------------------------- Class  6------------------------- 
+<http://purl.org/db/nosql#Table> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#Entity> ;
+                                 rdfs:label "Table"@IRI-based . 
+#  --------------------------- Class  7------------------------- 
+<http://purl.org/db/nosql#InfiniteGraph> rdf:type owl:Class; 
+                                         rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                         rdfs:label "InfiniteGraph"@IRI-based . 
+#  --------------------------- Class  8------------------------- 
+<http://purl.org/db/nosql#JanusGraph> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                      rdfs:label "JanusGraph"@IRI-based . 
+#  --------------------------- Class  9------------------------- 
+<http://purl.org/db/nosql#DynamoDB> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                    rdfs:label "DynamoDB"@IRI-based . 
+#  --------------------------- Class  10------------------------- 
+<http://purl.org/db/nosql#Cypher> rdf:type owl:Class; 
+                                  rdfs:comment "Query language used to intereact with a Neo4j database." ;
+                                  rdfs:subClassOf <http://purl.org/db/nosql#QueryLanguage> ;
+                                  rdfs:label "Cypher"@IRI-based . 
+#  --------------------------- Class  11------------------------- 
+<http://purl.org/db/nosql#Berkeley_DB> rdf:type owl:Class; 
+                                       rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                       rdfs:label "Berkeley_DB"@IRI-based . 
+#  --------------------------- Class  12------------------------- 
+<http://purl.org/db/nosql#Document> rdf:type owl:Class; 
+                                    rdfs:comment "Document store stores data in form of documents, like under JSOB/BSON formats." ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#NonRelationalDB> ;
+                                    rdfs:label "Document"@IRI-based . 
+#  --------------------------- Class  13------------------------- 
+<http://purl.org/db/nosql#Graph> rdf:type owl:Class; 
+                                 rdfs:comment "Graph store stores highly interconnected data, in form of graphs." ;
+                                 rdfs:subClassOf <http://purl.org/db/nosql#NonRelationalDB> ;
+                                 rdfs:label "Graph"@IRI-based . 
+#  --------------------------- Class  14------------------------- 
+<http://purl.org/db/nosql#DSE_Graph> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                     rdfs:label "DSE_Graph"@IRI-based . 
+#  --------------------------- Class  15------------------------- 
+<http://purl.org/db/nosql#MarkLogic> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                     rdfs:label "MarkLogic"@IRI-based . 
+#  --------------------------- Class  16------------------------- 
+<http://purl.org/db/nosql#Primary_key> rdf:type owl:Class; 
+                                       rdfs:subClassOf <http://purl.org/db/nosql#PrimaryKey> ;
+                                       rdfs:label "Primary_key"@IRI-based . 
+#  --------------------------- Class  17------------------------- 
+<http://purl.org/db/nosql#Graph_Engine> rdf:type owl:Class; 
+                                        rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                        rdfs:label "Graph_Engine"@IRI-based . 
+#  --------------------------- Class  18------------------------- 
+<http://purl.org/db/nosql#HBase> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                 rdfs:label "HBase"@IRI-based . 
+#  --------------------------- Class  19------------------------- 
+<http://purl.org/db/nosql#OrientDB> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Multi-model> ;
+                                    rdfs:label "OrientDB"@IRI-based . 
+#  --------------------------- Class  20------------------------- 
+<http://purl.org/db/nosql#RethinkDB> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                     rdfs:label "RethinkDB"@IRI-based . 
+#  --------------------------- Class  21------------------------- 
+<http://purl.org/db/nosql#Neo4j> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                 rdfs:label "Neo4j"@IRI-based . 
+#  --------------------------- Class  22------------------------- 
+<http://purl.org/db/nosql#Collection> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Entity> ;
+                                      rdfs:label "Collection"@IRI-based . 
+#  --------------------------- Class  23------------------------- 
+<http://purl.org/db/nosql#MaterializedView> rdf:type owl:Class; 
+                                            rdfs:subClassOf <http://purl.org/db/nosql#View> ;
+                                            rdfs:label "MaterializedView"@IRI-based . 
+#  --------------------------- Class  24------------------------- 
+<http://purl.org/db/nosql#KeyValue> rdf:type owl:Class; 
+                                    rdfs:comment "Key-value store stores data in form of long key,value maps." ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#NonRelationalDB> ;
+                                    rdfs:label "KeyValue"@IRI-based . 
+#  --------------------------- Class  25------------------------- 
+<http://purl.org/db/nosql#Attribute> rdf:type owl:Class; 
+                                     rdfs:comment "A term that groups all concepts used by different databases to characterize a particular datum stored in it, e.g., column in  Cassandra, field in MongoDB" ;
+                                     rdfs:label "Attribute"@IRI-based . 
+#  --------------------------- Class  26------------------------- 
+<http://purl.org/db/nosql#Dgraph> rdf:type owl:Class; 
+                                  rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                  rdfs:label "Dgraph"@IRI-based . 
+#  --------------------------- Class  27------------------------- 
+<http://purl.org/db/nosql#NonRelationalDB> rdf:type owl:Class; 
+                                           owl:equivalentClass <http://purl.org/db/nosql#Store> ;
+                                           rdfs:comment "A non-relation database, is a database that is designed around other models than the relational model. Used interchangbly with NOSQL database or store." ;
+                                           rdfs:label "NonRelationalDB"@IRI-based . 
+#  --------------------------- Class  28------------------------- 
+<http://purl.org/db/nosql#HypergraphDB> rdf:type owl:Class; 
+                                        rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                        rdfs:label "HypergraphDB"@IRI-based . 
+#  --------------------------- Class  29------------------------- 
+<http://purl.org/db/nosql#Hypertable> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                      rdfs:label "Hypertable"@IRI-based . 
+#  --------------------------- Class  30------------------------- 
+<http://purl.org/db/nosql#CQL> rdf:type owl:Class; 
+                               rdfs:comment "Cassandra Query Language, query language (SQL-like) used to interact with a Cassandra database." ;
+                               rdfs:subClassOf <http://purl.org/db/nosql#QueryLanguage> ;
+                               rdfs:label "CQL"@IRI-based . 
+#  --------------------------- Class  31------------------------- 
+<http://purl.org/db/nosql#SimpleDB> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                    rdfs:label "SimpleDB"@IRI-based . 
+#  --------------------------- Class  32------------------------- 
+<http://purl.org/db/nosql#Trinity> rdf:type owl:Class; 
+                                   rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                   rdfs:label "Trinity"@IRI-based . 
+#  --------------------------- Class  33------------------------- 
+<http://purl.org/db/nosql#GlobalSecondaryIndex> rdf:type owl:Class; 
+                                                rdfs:subClassOf <http://purl.org/db/nosql#View> ;
+                                                rdfs:label "GlobalSecondaryIndex"@IRI-based . 
+#  --------------------------- Class  34------------------------- 
+<http://purl.org/db/nosql#Columnar> rdf:type owl:Class; 
+                                    rdfs:comment "Columnar or column-based store organises data virtually around rows, but stores it physically by columns. It may allow to store rows of different schema in one same table." ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#NonRelationalDB> ;
+                                    rdfs:label "Columnar"@IRI-based . 
+#  --------------------------- Class  35------------------------- 
+<http://purl.org/db/nosql#MongoDB> rdf:type owl:Class; 
+                                   rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                   rdfs:label "MongoDB"@IRI-based . 
+#  --------------------------- Class  36------------------------- 
+<http://purl.org/db/nosql#Kudu> rdf:type owl:Class; 
+                                rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                rdfs:label "Kudu"@IRI-based . 
+#  --------------------------- Class  37------------------------- 
+<http://purl.org/db/nosql#RavenDB> rdf:type owl:Class; 
+                                   rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                   rdfs:label "RavenDB"@IRI-based . 
+#  --------------------------- Class  38------------------------- 
+<http://purl.org/db/nosql#MonetDB> rdf:type owl:Class; 
+                                   rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                   rdfs:label "MonetDB"@IRI-based . 
+#  --------------------------- Class  39------------------------- 
+<http://purl.org/db/nosql#HQL> rdf:type owl:Class; 
+                               rdfs:comment "Hypertable Query Language, query language (SQL-like) used to interact with a Hypertable database." ;
+                               rdfs:subClassOf <http://purl.org/db/nosql#QueryLanguage> ;
+                               rdfs:label "HQL"@IRI-based . 
+#  --------------------------- Class  40------------------------- 
+<http://purl.org/db/nosql#QueryLanguage> rdf:type owl:Class; 
+                                         rdfs:comment "A syntax of a query or dialect to interact with a database." ;
+                                         rdfs:label "QueryLanguage"@IRI-based . 
+#  --------------------------- Class  41------------------------- 
+<http://purl.org/db/nosql#Scalaris> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                    rdfs:label "Scalaris"@IRI-based . 
+#  --------------------------- Class  42------------------------- 
+<http://purl.org/db/nosql#ObjectID> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#PrimaryKey> ;
+                                    rdfs:label "ObjectID"@IRI-based . 
+#  --------------------------- Class  43------------------------- 
+<http://purl.org/db/nosql#Data_Bucket> rdf:type owl:Class; 
+                                       rdfs:subClassOf <http://purl.org/db/nosql#Entity> ;
+                                       rdfs:label "Data_Bucket"@IRI-based . 
+#  --------------------------- Class  44------------------------- 
+<http://purl.org/db/nosql#Index> rdf:type owl:Class; 
+                                 rdfs:label "Index"@IRI-based . 
+#  --------------------------- Class  45------------------------- 
+<http://purl.org/db/nosql#Bagri> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                 rdfs:label "Bagri"@IRI-based . 
+#  --------------------------- Class  46------------------------- 
+<http://purl.org/db/nosql#SequoiaDB> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                     rdfs:label "SequoiaDB"@IRI-based . 
+#  --------------------------- Class  47------------------------- 
+<http://purl.org/db/nosql#Cosmos_DB> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Multi-model> ;
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                     rdfs:label "Cosmos_DB"@IRI-based . 
+#  --------------------------- Class  48------------------------- 
+<http://purl.org/db/nosql#CouchDB> rdf:type owl:Class; 
+                                   rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                   rdfs:label "CouchDB"@IRI-based . 
+#  --------------------------- Class  49------------------------- 
+<http://purl.org/db/nosql#ACID> rdf:type owl:Class; 
+                                rdfs:comment "In a database, ACID are four properties: Atomicity, Consistency, Isolation, and Durability, that ensure that transactions, failed or succeded, leave the data in a valid and consistent state." ;
+                                rdfs:subClassOf <http://purl.org/db/nosql#Properties> ;
+                                owl:disjointWith <http://purl.org/db/nosql#BASE> ;
+                                rdfs:label "ACID"@IRI-based . 
+#  --------------------------- Class  50------------------------- 
+<http://purl.org/db/nosql#Cloudant> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                    rdfs:label "Cloudant"@IRI-based . 
+#  --------------------------- Class  51------------------------- 
+<http://purl.org/db/nosql#DocumentID> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#PrimaryKey> ;
+                                      rdfs:label "DocumentID"@IRI-based . 
+#  --------------------------- Class  52------------------------- 
+<http://purl.org/db/nosql#Voldemort> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:label "Voldemort"@IRI-based . 
+#  --------------------------- Class  53------------------------- 
+<http://purl.org/db/nosql#ArangoDB> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Multi-model> ;
+                                    rdfs:label "ArangoDB"@IRI-based . 
+#  --------------------------- Class  54------------------------- 
+<http://purl.org/db/nosql#Cloud_Datastore> rdf:type owl:Class; 
+                                           rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                           rdfs:label "Cloud_Datastore"@IRI-based . 
+#  --------------------------- Class  55------------------------- 
+<http://purl.org/db/nosql#Oracle_NoSQL_Database> rdf:type owl:Class; 
+                                                 rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                                 rdfs:label "Oracle_NoSQL_Database"@IRI-based . 
+#  --------------------------- Class  56------------------------- 
+<http://purl.org/db/nosql#Memcached> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:label "Memcached"@IRI-based . 
+#  --------------------------- Class  57------------------------- 
+<http://purl.org/db/nosql#DocumentDB> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Document> ;
+                                      rdfs:label "DocumentDB"@IRI-based . 
+#  --------------------------- Class  58------------------------- 
+<http://purl.org/db/nosql#Riak> rdf:type owl:Class; 
+                                rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                rdfs:label "Riak"@IRI-based . 
+#  --------------------------- Class  59------------------------- 
+<http://purl.org/db/nosql#PrimaryKey> rdf:type owl:Class; 
+                                      rdfs:label "PrimaryKey"@IRI-based . 
+#  --------------------------- Class  60------------------------- 
+<http://purl.org/db/nosql#View> rdf:type owl:Class; 
+                                rdfs:label "View"@IRI-based . 
+#  --------------------------- Class  61------------------------- 
+<http://purl.org/db/nosql#Properties> rdf:type owl:Class; 
+                                      rdfs:label "Properties"@IRI-based . 
+#  --------------------------- Class  62------------------------- 
+<http://purl.org/db/nosql#BASE> rdf:type owl:Class; 
+                                rdfs:comment "A set of four properties: Basically Available, Soft state, Eventual consistency, that are commonly found in distributed NOSQL stores, as apposed to ACID in relational databases. Data added might not be ready for query everywhere, but will eventually be, and hence a system state is in constant change." ;
+                                rdfs:subClassOf <http://purl.org/db/nosql#Properties> ;
+                                rdfs:label "BASE"@IRI-based . 
+#  --------------------------- Class  63------------------------- 
+<http://purl.org/db/nosql#Sparksee> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                    rdfs:label "Sparksee"@IRI-based . 
+#  --------------------------- Class  64------------------------- 
+<http://purl.org/db/nosql#AllegroGraph> rdf:type owl:Class; 
+                                        rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                        rdfs:label "AllegroGraph"@IRI-based . 
+#  --------------------------- Class  65------------------------- 
+<http://purl.org/db/nosql#SecondaryIndex> rdf:type owl:Class; 
+                                          rdfs:subClassOf <http://purl.org/db/nosql#Index> ;
+                                          rdfs:label "SecondaryIndex"@IRI-based . 
+#  --------------------------- Class  66------------------------- 
+<http://purl.org/db/nosql#Accumulo> rdf:type owl:Class; 
+                                    rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                    rdfs:label "Accumulo"@IRI-based . 
+#  --------------------------- Class  67------------------------- 
+<http://purl.org/db/nosql#N1QL> rdf:type owl:Class; 
+                                rdfs:comment "Query language (SQL-like) used to interact with a Couchbase database." ;
+                                rdfs:subClassOf <http://purl.org/db/nosql#QueryLanguage> ;
+                                rdfs:label "N1QL"@IRI-based . 
+#  --------------------------- Class  68------------------------- 
+<http://purl.org/db/nosql#Blazegraph> rdf:type owl:Class; 
+                                      rdfs:subClassOf <http://purl.org/db/nosql#Graph> ;
+                                      rdfs:label "Blazegraph"@IRI-based . 
+#  --------------------------- Class  69------------------------- 
+<http://purl.org/db/nosql#Multi-model> rdf:type owl:Class; 
+                                       rdfs:subClassOf <http://purl.org/db/nosql#NonRelationalDB> ;
+                                       rdfs:label "Multi-model"@IRI-based . 
+#  --------------------------- Class  70------------------------- 
+<http://purl.org/db/nosql#AQL> rdf:type owl:Class; 
+                               rdfs:comment "ArangoDB Query Language, query language used to interact with an ArangoDB database." ;
+                               rdfs:subClassOf <http://purl.org/db/nosql#QueryLanguage> ;
+                               rdfs:label "AQL"@IRI-based . 
+#  --------------------------- Class  71------------------------- 
+<http://purl.org/db/nosql#upscaledb> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                     rdfs:label "upscaledb"@IRI-based . 
+#  --------------------------- Class  72------------------------- 
+<http://purl.org/db/nosql#Entity> rdf:type owl:Class; 
+                                  rdfs:comment "A term that groups all concepts used by different databases to store similar data together." ;
+                                  rdfs:label "Entity"@IRI-based . 
+#  --------------------------- Class  73------------------------- 
+<http://purl.org/db/nosql#Cassandra> rdf:type owl:Class; 
+                                     rdfs:subClassOf <http://purl.org/db/nosql#Columnar> ;
+                                     rdfs:label "Cassandra"@IRI-based . 
+#  --------------------------- Class  74------------------------- 
+<http://purl.org/db/nosql#Redis> rdf:type owl:Class; 
+                                 rdfs:subClassOf <http://purl.org/db/nosql#KeyValue> ;
+                                 rdfs:label "Redis"@IRI-based . 
+#  --------------------------- Class  75------------------------- 
+<http://purl.org/db/nosql#Cluster> rdf:type owl:Class; 
+                                   rdfs:comment "A group of physical or virtual computing machines." ;
+                                   rdfs:label "Cluster"@IRI-based . 
