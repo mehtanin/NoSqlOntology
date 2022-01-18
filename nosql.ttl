@@ -232,7 +232,7 @@ rdf:resource rdf:type owl:AnnotationProperty .
 ###  http://purl.org/db/nosql#Columnar
 :Columnar rdf:type owl:Class ;
           rdfs:subClassOf :Store ;
-          rdfs:comment "Columnar or column-based store organises data virtually around rows, but stores it physically by columns. It may allow to store rows of different schema in one same table."@en .
+          rdfs:comment "Columnar or column-based store organises data virtually around rows, but stores it physically by columns. It may allow to store rows of different schema in one same table. Edited by rashikh."@en .
 
 
 ###  http://purl.org/db/nosql#Cosmos_DB
