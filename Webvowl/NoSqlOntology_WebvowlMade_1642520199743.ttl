@@ -2,6 +2,7 @@
 ###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.7)  http://visualdataweb.de/webvowl/   ###
 #################################################################
 
+
 @prefix : 		<http://purl.org/db/nosql> .
 @prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
@@ -22,7 +23,7 @@
 #  --------------------------- Property 0------------------------- 
 <http://purl.org/db/nosql#compliesWith> rdf:type owl:ObjectProperty ;
                                         rdfs:comment "Tell which database is compliant with which properties, like relational database with ACID properties, or NOSQL wirh BASE properties." ;
-                                        rdfs:label "compliesWith"@IRI-based; 
+                                        rdfs:label "compliesWithRashikh"@IRI-based; 
                                         rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
                                         rdfs:range <http://purl.org/db/nosql#Properties> . 
 #  --------------------------- Property 1------------------------- 
