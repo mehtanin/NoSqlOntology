@@ -37,7 +37,7 @@
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#about
 rdf:about rdf:type owl:AnnotationProperty ;
-          rdf:label "About"@en.
+          rdf:label "AboutEditedByRashikh"@en.
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#resource
