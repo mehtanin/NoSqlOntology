@@ -23,7 +23,7 @@
 #  --------------------------- Property 0------------------------- 
 <http://purl.org/db/nosql#compliesWith> rdf:type owl:ObjectProperty ;
                                         rdfs:comment "Tell which database is compliant with which properties, like relational database with ACID properties, or NOSQL wirh BASE properties." ;
-                                        rdfs:label "compliesWithRashikh"@IRI-based; 
+                                        rdfs:label "compliesWithRashikh2022"@IRI-based; 
                                         rdfs:domain <http://purl.org/db/nosql#NonRelationalDB>;
                                         rdfs:range <http://purl.org/db/nosql#Properties> . 
 #  --------------------------- Property 1------------------------- 
